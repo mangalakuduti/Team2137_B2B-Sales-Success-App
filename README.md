@@ -2,3 +2,7 @@
 
 Team Members:
 Manas Angalakuduti
+Nithik Balachandran
+Abhi Bharatham
+Andrew Lukman
+Joshua Reid
