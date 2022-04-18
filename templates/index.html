@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>B2B Success App</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">B2B Success App</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no previous searches. Create one below!</h4>
+    {% else %}
+    <table> 
+        <tr id="headers">
+            <th>Information</th>
+            <th>Date Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr id="info">
+                <td><pre>{{ task.content }}</pre></td>
+                <td>{{ task.date_created.date() }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</div>
+{% endblock %}
